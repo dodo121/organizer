@@ -21,7 +21,8 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-
+gem 'decent_exposure'
+gem 'decent_generators'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -43,5 +44,48 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+
+gem 'bootstrap-sass'
+gem 'devise'
+gem 'haml-rails'
+gem 'pg'
+gem 'simple_form'
+
+group :development do
+  gem 'better_errors'
+  gem 'guard-bundler'
+  gem 'guard-rails'
+  gem 'guard-rspec'
+  gem 'html2haml'
+  gem 'quiet_assets'
+  gem 'rails_apps_pages'
+  gem 'rails_apps_testing'
+  gem 'rails_layout'
+  gem 'rb-fchange', :require=>false
+  gem 'rb-fsevent', :require=>false
+  gem 'rb-inotify', :require=>false
+  gem 'spring-commands-rspec'
+end
+
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'pry-rails'
+  gem 'pry-rescue'
+  gem 'rspec-rails'
+  gem 'rubocop'
+end
+
+group :production do
+  gem 'rails_12factor'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
