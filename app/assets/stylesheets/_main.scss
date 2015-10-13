@@ -1,0 +1,19 @@
+html {
+  min-height: 100%;
+}
+
+#main {
+  min-height: 100%;
+  background: -webkit-linear-gradient(#005C97, #363795); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#005C97, #363795); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#005C97, #363795); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#005C97, #363795); /* Standard syntax */
+}
+
+h1 {
+  color: #EEE9E9
+}
+
+.navbar {
+  margin-bottom: 0
+}

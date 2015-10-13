@@ -1,0 +1,6 @@
+%h1 Notes
+  %span.glyphicon.glyphicon-plus
+.row
+  .col-sm-3{'ng-repeat'=>'note in notes'}
+    .well.well-sm
+      {{note.content}}
