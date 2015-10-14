@@ -3,10 +3,11 @@
 %head
   %title Organizer
   = stylesheet_link_tag    'application', media: 'all'
-  = javascript_include_tag 'application', controller_name
+  = javascript_include_tag 'application', 'main'
   = csrf_meta_tags
 
 %body
   = render 'layouts/navbar'
   #main
     .container{'ng-view' => ''}
+      = yield

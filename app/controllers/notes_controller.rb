@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  respond_to :json
+
   expose(:notes)
   expose(:note, attributes: :note_params)
 
