@@ -1,3 +1,23 @@
-// Place all the styles related to the Notes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.ng-leave {
+  -webkit-transition:0.5s linear all;
+  -moz-transition:0.5s linear all;
+  -o-transition:0.5s linear all;
+  transition:0.5s linear all;
+  opacity: 1;
+}
+
+.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+.note.ng-enter {
+  -webkit-transition:0.5s linear all;
+  -moz-transition:0.5s linear all;
+  -o-transition:0.5s linear all;
+  transition:0.5s linear all;
+  opacity: 1;
+}
+
+.note.ng-enter.ng-enter-active {
+  opacity: 0;
+}

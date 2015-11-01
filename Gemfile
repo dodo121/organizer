@@ -53,6 +53,7 @@ gem 'haml-rails'
 gem 'pg'
 gem 'simple_form'
 gem 'angularjs-rails'
+gem 'angular_rails_csrf'
 
 group :development do
   gem 'better_errors'

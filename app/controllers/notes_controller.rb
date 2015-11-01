@@ -22,7 +22,7 @@ class NotesController < ApplicationController
 
   def destroy
     note.destroy
-    redirect_to notes_url, notice: 'Note was successfully destroyed.'
+    head :no_content
   end
 
   private
