@@ -55,6 +55,7 @@ gem 'simple_form'
 gem 'angularjs-rails'
 gem 'angular_rails_csrf'
 gem 'angular-rails-templates'
+gem 'sprockets', '~> 2.0'
 
 group :development do
   gem 'better_errors'
