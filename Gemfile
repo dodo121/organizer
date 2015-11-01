@@ -54,6 +54,7 @@ gem 'pg'
 gem 'simple_form'
 gem 'angularjs-rails'
 gem 'angular_rails_csrf'
+gem 'angular-rails-templates'
 
 group :development do
   gem 'better_errors'
