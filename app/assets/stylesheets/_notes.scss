@@ -1,4 +1,4 @@
-.ng-leave {
+/*.ng-leave {
   -webkit-transition:0.5s linear all;
   -moz-transition:0.5s linear all;
   -o-transition:0.5s linear all;
@@ -20,4 +20,10 @@
 
 .note.ng-enter.ng-enter-active {
   opacity: 0;
+}
+*/
+
+.edit-note {
+  border: 0;
+  background-color: #f5f5f5;
 }

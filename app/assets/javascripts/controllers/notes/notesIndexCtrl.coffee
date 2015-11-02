@@ -12,4 +12,11 @@ Organizer.controller('NotesCtrl', ['$scope', '$location', '$resource', 'Note', (
   $scope.deleteNote = (note) ->
     Note.destroy(note)
     $scope.notes.splice($scope.notes.indexOf(note), 1)
+
+  $scope.editing = false
+
+  $scope.editNote = ->
+    $scope.editing = true
+
+  $scope.showForm
 ])
