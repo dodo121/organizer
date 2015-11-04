@@ -1,13 +1,15 @@
 %h1
   Notes
   .glyphicon.glyphicon-plus{'ng-click'=>'showForm'}
-  #new-note
-    %p Tu bede nowe note {{editing}}
 
 .row
-  .col-sm-3.note{'ng-repeat'=>'note in notes'}
-    .well.well-sm{'ng-click' => 'editNote()'}
+  .col-sm-3.note{'id'=>'note_{{+ note.id}}', 'ng-repeat'=>'note in notes'}
+    .well.well-sm{'ng-click' => 'editNote(note)'}
       .glyphicon.glyphicon-remove.pull-right{'ng-click'=>'deleteNote(note)'}
-      .note{'ng-show' => 'editing == false'}
+      .note-content{'ng-show' => 'note.editing != true'}
         {{note.content}}
-      %input{'type' => 'text', 'value' => '{{note.content}}', 'ng-show' => 'editing == true', 'class' => 'edit-note'}
+      %input{'type' => 'text',
+             'ng-show' => 'note.editing == true',
+             'class' => 'edit-note',
+             'ng-model'=> 'note.content' }
+

@@ -1,15 +1,20 @@
-/*.ng-leave {
-  -webkit-transition:0.5s linear all;
-  -moz-transition:0.5s linear all;
-  -o-transition:0.5s linear all;
-  transition:0.5s linear all;
-  opacity: 1;
+.note-content {
+  min-height: 22px;
+  vertical-align: bottom;
 }
 
-.ng-leave.ng-leave-active {
-  opacity: 0;
+.note.ng-leave {
+  -webkit-transition:0.2s linear all;
+  -moz-transition:0.2s linear all;
+  -o-transition:0.2s linear all;
+  transition:0.2 linear all;
 }
 
+.note.ng-leave.ng-leave-active {
+  height: 0;
+  width: 0;
+}
+/*
 .note.ng-enter {
   -webkit-transition:0.5s linear all;
   -moz-transition:0.5s linear all;
@@ -26,4 +31,8 @@
 .edit-note {
   border: 0;
   background-color: #f5f5f5;
+}
+.edit-note:focus {
+  -webkit-box-shadow: none;
+  outline: -webkit-focus-ring-color auto 0px;
 }
