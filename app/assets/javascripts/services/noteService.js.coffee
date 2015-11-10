@@ -1,7 +1,12 @@
 Organizer = angular.module('Organizer')
 
 Organizer.factory('Note', ['$resource', ($resource) ->
-  Note = $resource('/notes/:noteId', { noteId: '@id', format: 'json' }, {})
+  Note = $resource('/notes/:noteId', { noteId: '@id', format: 'json' },
+    {
+      'save': { method: 'PUT' },
+      'create': { method: 'POST' }
+    }
+  )
 
   factory = {}
 
@@ -12,7 +17,8 @@ Organizer.factory('Note', ['$resource', ($resource) ->
     note.$delete()
 
   factory.updateNote = (note) ->
-    #FIXME note.$save()
+    console.log 'in update note'
+    note.$save()
 
   return factory
 ])

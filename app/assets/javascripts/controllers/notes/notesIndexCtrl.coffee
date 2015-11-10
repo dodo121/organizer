@@ -13,16 +13,16 @@ Organizer.controller('NotesCtrl', ['$scope', '$location', '$resource', 'Note', (
     Note.destroy(note)
     $scope.notes.splice($scope.notes.indexOf(note), 1)
 
-
   $scope.editNote = (note) ->
     note.editing = true
     setTimeout (->
       $('#note_' + note.id).find('.edit-note').focus()
       $('#note_' + note.id).find('.edit-note').focusout ->
+        console.log 'focus out'
         Note.updateNote(note)
-    ), 50
+    ), 5
 
     return true
 
-  $scope.showForm
+ # $scope.showForm
 ])

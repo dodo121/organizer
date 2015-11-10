@@ -13,11 +13,8 @@ class NotesController < ApplicationController
   end
 
   def update
-    if note.update(note_params)
-      redirect_to note, notice: 'Note was successfully updated.'
-    else
-      render action: 'edit'
-    end
+    note.update_attributes(content: note_params[:content])
+    head :no_content
   end
 
   def destroy
