@@ -10,6 +10,7 @@ Organizer.controller('NotesCtrl', ['$scope', '$location', '$resource', 'Note', (
   loadNotes()
 
   $scope.deleteNote = (note) ->
+    #$('#note_' + note.id).find('.note-content').css('visibility', 'hidden')
     Note.destroy(note)
     $scope.notes.splice($scope.notes.indexOf(note), 1)
 

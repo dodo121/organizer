@@ -5,7 +5,7 @@
 .row
   .col-sm-3.note{'id'=>'note_{{+ note.id}}', 'ng-repeat'=>'note in notes'}
     .well.well-sm{'ng-click' => 'editNote(note)'}
-      .glyphicon.glyphicon-remove.pull-right{'ng-click'=>'deleteNote(note)'}
+      .glyphicon.glyphicon-remove.pull-right.delete_button{'ng-click'=>'deleteNote(note)'}
       .note-content{'ng-show' => 'note.editing != true'}
         {{note.content}}
       %input{'type' => 'text',
