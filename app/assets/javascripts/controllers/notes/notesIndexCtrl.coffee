@@ -1,6 +1,8 @@
 Organizer = angular.module('Organizer')
 
-Organizer.controller('NotesCtrl', ['$scope', '$location', '$resource', 'Note', ($scope, $location, $resource, Note) ->
+Organizer.controller('NotesCtrl', ['$scope', '$location', '$resource', 'Note', 'Navbar', ($scope, $location, $resource, Note, Navbar) ->
+  Navbar.setActive('#notes')
+
   $scope.notes =
     note: { content: 'Please wait'}
 
@@ -10,20 +12,24 @@ Organizer.controller('NotesCtrl', ['$scope', '$location', '$resource', 'Note', (
   loadNotes()
 
   $scope.deleteNote = (note) ->
-    #$('#note_' + note.id).find('.note-content').css('visibility', 'hidden')
     Note.destroy(note)
     $scope.notes.splice($scope.notes.indexOf(note), 1)
-
-  $scope.editNote = (note) ->
-    note.editing = true
-    setTimeout (->
-      $('#note_' + note.id).find('.edit-note').focus()
-      $('#note_' + note.id).find('.edit-note').focusout ->
-        console.log 'focus out'
-        Note.updateNote(note)
-    ), 5
-
-    return true
-
- # $scope.showForm
 ])
+
+Organizer.directive('myNote', ['Note', (Note) ->
+  return {
+    restict: 'A',
+    link: (scope, element, attrs) ->
+      element.on 'click', ->
+        scope.note.editing = true
+        setTimeout (->
+          $('#note_' + scope.note.id).find('.edit-note').focus()
+        ), 5
+
+      element.find('.edit-note').focusout ->
+        Note.updateNote(scope.note)
+
+      return true
+  }
+])
+

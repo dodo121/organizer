@@ -3,7 +3,7 @@
   .glyphicon.glyphicon-plus{'ng-click'=>'showForm'}
 
 .row
-  .col-sm-3.note{'id'=>'note_{{+ note.id}}', 'ng-repeat'=>'note in notes'}
+  %my-note.col-sm-3{'id'=>'note_{{+ note.id}}', 'ng-repeat'=>'note in notes'}
     .well.well-sm{'ng-click' => 'editNote(note)'}
       .glyphicon.glyphicon-remove.pull-right.delete_button{'ng-click'=>'deleteNote(note)'}
       .note-content{'ng-show' => 'note.editing != true'}

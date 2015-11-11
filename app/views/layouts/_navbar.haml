@@ -8,7 +8,7 @@
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li.active
-          %a{:href => "#"}
+          %a{:href => "#", 'ng-click' => "Navbar.setActive('test')"}
             Home
             %span.sr-only (current)
         %li

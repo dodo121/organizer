@@ -17,7 +17,6 @@ Organizer.factory('Note', ['$resource', ($resource) ->
     note.$delete()
 
   factory.updateNote = (note) ->
-    console.log 'in update note'
     note.$save()
 
   return factory
