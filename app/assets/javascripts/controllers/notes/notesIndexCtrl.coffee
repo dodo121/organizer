@@ -1,8 +1,6 @@
 Organizer = angular.module('Organizer')
 
-Organizer.controller('NotesCtrl', ['$scope', '$location', '$resource', 'Note', 'Navbar', ($scope, $location, $resource, Note, Navbar) ->
-  Navbar.setActive('#notes')
-
+Organizer.controller('NotesCtrl', ['$scope', '$location', '$resource', 'Note', ($scope, $location, $resource, Note) ->
   $scope.notes =
     note: { content: 'Please wait'}
 
@@ -22,9 +20,8 @@ Organizer.directive('myNote', ['Note', (Note) ->
     link: (scope, element, attrs) ->
       element.on 'click', ->
         scope.note.editing = true
-        setTimeout (->
-          $('#note_' + scope.note.id).find('.edit-note').focus()
-        ), 5
+        element.find('.note-content').hide()
+        element.find('.edit-note').show().focus()
 
       element.find('.edit-note').focusout ->
         Note.updateNote(scope.note)
