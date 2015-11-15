@@ -3,13 +3,13 @@
     .navbar-header
       %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
-      %a.navbar-brand{:href => "#"} Organizer
+      %a.navbar-brand.nav-link{:href => "#"} Organizer
 
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li.active
-          %a{:href => "#", 'ng-click' => "Navbar.setActive('test')"}
+        %li.active.nav-link.home
+          %a{:href => "#"}
             Home
             %span.sr-only (current)
-        %li
+        %li.nav-link
           %a{:href => "#notes"} Notes
