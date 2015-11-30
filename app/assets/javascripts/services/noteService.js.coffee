@@ -16,8 +16,9 @@ Organizer.factory('Note', ['$resource', ($resource) ->
   factory.destroy = (note) ->
     note.$delete()
 
-  factory.updateNote = (note) ->
-    note.$save()
+  factory.saveNote = (note) ->
+    console.log note
+    if note.id == undefined then note.$create() else note.$save()
 
   return factory
 ])

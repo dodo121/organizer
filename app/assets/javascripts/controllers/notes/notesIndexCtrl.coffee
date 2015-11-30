@@ -1,6 +1,8 @@
 Organizer = angular.module('Organizer')
 
-Organizer.controller('NotesCtrl', ['$scope', '$location', '$resource', 'Note', ($scope, $location, $resource, Note) ->
+Organizer.controller('NotesCtrl', ['$scope', '$location', '$resource', 'Note', 'Navbar', ($scope, $location, $resource, Note, Navbar) ->
+  Navbar.switchTo('#notes-link')
+
   $scope.notes =
     note: { content: 'Please wait'}
 
@@ -24,8 +26,18 @@ Organizer.directive('myNote', ['Note', (Note) ->
         element.find('.edit-note').show().focus()
 
       element.find('.edit-note').focusout ->
-        Note.updateNote(scope.note)
+        Note.saveNote(scope.note)
 
+      return true
+  }
+])
+
+Organizer.directive('addNote', [ ->
+  return {
+    restrict: 'A',
+    link: (scope, element, attrs) ->
+      element.on 'click', ->
+        log 'clicked new'
       return true
   }
 ])

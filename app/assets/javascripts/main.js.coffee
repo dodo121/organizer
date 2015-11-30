@@ -11,19 +11,3 @@ Organizer.config(['$routeProvider', ($routeProvider) ->
 
   $routeProvider.otherwise({ templateUrl: 'homeIndex.html', controller: 'IndexCtrl' } )
 ])
-
-Organizer.directive('navLink', [ ->
-  return {
-    restrict: 'AEC',
-    link: (scope, element, attrs) ->
-      element.on 'click', ->
-        $('.nav-link').each ->
-          $(this).removeClass('active')
-
-        if element.hasClass('navbar-brand')
-          $('.nav-link.home').addClass('active')
-        else
-          element.addClass('active')
-      return true
-  }
-])

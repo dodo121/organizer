@@ -1,0 +1,6 @@
+%my-note.col-sm-3
+  .well.well-sm
+    .glyphicon.glyphicon-remove.pull-right.delete_button{'ng-click'=>'ng-hide()'}
+    %input{'type' => 'text',
+           'class' => 'edit-note',
+           'ng-model'=> 'note.content' }

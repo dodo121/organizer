@@ -1,6 +1,6 @@
 %h1
   Notes
-  .glyphicon.glyphicon-plus{'ng-click'=>'showForm'}
+  //%add-new.glyphicon.glyphicon-plus
 
 .row
   %my-note.col-sm-3{'ng-repeat'=>'note in notes'}
@@ -11,4 +11,3 @@
       %input{'type' => 'text',
              'class' => 'edit-note',
              'ng-model'=> 'note.content' }
-
