@@ -32,13 +32,12 @@ Organizer.directive('myNote', ['Note', (Note) ->
   }
 ])
 
-Organizer.directive('addNote', [ ->
+Organizer.directive('addNewNote', [ '$compile', ($compile) ->
   return {
-    restrict: 'A',
+    restrict: 'E',
     link: (scope, element, attrs) ->
       element.on 'click', ->
-        log 'clicked new'
+        $('#notes').append($compile('<div ng-include="\'templates/notesNew.html\'"></div>')(scope))
       return true
   }
 ])
-
