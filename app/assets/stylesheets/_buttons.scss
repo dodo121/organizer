@@ -1,0 +1,12 @@
+@mixin custom-button-color($color) {
+  background-color: $color;
+  border-color: $color;
+}
+
+.btn-danger {
+  @include custom-button-color(#363795);
+}
+
+.btn-danger:hover {
+  @include custom-button-color(#4d3695);
+}

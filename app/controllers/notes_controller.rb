@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
   respond_to :json
 
-  expose(:notes)
+  expose(:notes) { Note.all.order('created_at asc') }
   expose(:note, attributes: :note_params)
 
   def create

@@ -3,11 +3,13 @@
   %add-new-note.glyphicon.glyphicon-plus
 
 .row#notes
-  %my-note.col-sm-3{'ng-repeat'=>'note in notes'}
-    .well.well-sm
-      .glyphicon.glyphicon-remove.pull-right.delete_button{'ng-click'=>'deleteNote(note)'}
-      .note-content
-        {{note.content}}
-      %input{'type' => 'text',
-             'class' => 'edit-note',
-             'ng-model'=> 'note.content' }
+  %div{'ng-repeat'=>'note in notes'}
+    .clearfix{'ng-if'=>"$index % 4 == 0"}
+    %my-note.col-sm-3
+      .well.well-sm
+        .glyphicon.glyphicon-remove.pull-right.delete_button{'ng-click'=>'deleteNote(note)'}
+        %textarea{'ng-model'=> 'note.content' }
+        %br/
+        %button{'type'=>'button', 'class'=>'btn btn-primary btn-sm', 'ng-click'=>'saveNote(note)'} Save
+        %button{'type'=>'button', 'class'=>'btn btn-primary btn-sm', 'ng-click'=>'saveNote(note)', 'disabled'=>'true'} Cancel
+        %button{'type'=>'button', 'class'=>'btn btn-danger btn-sm', 'ng-click'=>'deleteNote(note)'} Delete

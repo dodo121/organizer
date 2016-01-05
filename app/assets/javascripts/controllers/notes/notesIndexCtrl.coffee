@@ -20,13 +20,13 @@ Organizer.directive('myNote', ['Note', (Note) ->
   return {
     restict: 'A',
     link: (scope, element, attrs) ->
-      element.on 'click', ->
-        scope.note.editing = true
-        element.find('.note-content').hide()
-        element.find('.edit-note').show().focus()
-
-      element.find('.edit-note').focusout ->
-        Note.saveNote(scope.note)
+      setTimeout (->
+        element.find('textarea').height(element.find('textarea')[0].scrollHeight)
+      ), 10
+      element.find('textarea').focusout ->
+        setTimeout (->
+          Note.saveNote(scope.note)
+        ), 2000 #Wait 2 sec, let user use buttons
 
       return true
   }

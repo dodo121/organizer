@@ -1,3 +1,3 @@
-(1..10).each do |n|
-  Note.create(content: "Lorem ipsum #{n}")
+10.times do
+  Note.create(content: Faker::Lorem.sentences(rand(5)).join(' '))
 end
