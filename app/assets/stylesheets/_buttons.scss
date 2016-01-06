@@ -1,12 +1,20 @@
 @mixin custom-button-color($color) {
   background-color: $color;
   border-color: $color;
+  outline: none;
+}
+@mixin custom-button-color-user-actions($color) {
+  &:hover, &.active.focus, &.active:focus, &:active.focus, &:active:focus, &:active:hover, &:focus {
+    @include custom-button-color($color);
+  }
 }
 
 .btn-danger {
   @include custom-button-color(#363795);
+  @include custom-button-color-user-actions(#4d3695);
 }
 
-.btn-danger:hover {
-  @include custom-button-color(#4d3695);
+.btn-warning {
+  @include custom-button-color(#777);
+  @include custom-button-color-user-actions(#535654);
 }

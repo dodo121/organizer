@@ -14,6 +14,9 @@ Organizer.controller('NotesCtrl', ['$scope', '$location', '$resource', 'Note', '
   $scope.deleteNote = (note) ->
     Note.destroy(note)
     $scope.notes.splice($scope.notes.indexOf(note), 1)
+
+  $scope.cancelEdit = (note) ->
+    note.content = sessionStorage.lastEditedNote
 ])
 
 Organizer.directive('myNote', ['Note', (Note) ->
@@ -23,11 +26,18 @@ Organizer.directive('myNote', ['Note', (Note) ->
       setTimeout (->
         element.find('textarea').height(element.find('textarea')[0].scrollHeight)
       ), 10
+
+      element.click ->
+        $('.buttons').not(element.find('.buttons')).slideUp()
+        element.find('.buttons').slideDown()
+        scope.note.editing = true
+        sessionStorage.lastEditedNote = scope.note.content
+
       element.find('textarea').focusout ->
         setTimeout (->
-          Note.saveNote(scope.note)
+          if scope.note.content != sessionStorage.lastEditedNote #Send update only if note content has changed
+            Note.saveNote(scope.note)
         ), 2000 #Wait 2 sec, let user use buttons
-
       return true
   }
 ])

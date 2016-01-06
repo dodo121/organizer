@@ -9,7 +9,7 @@
       .well.well-sm
         .glyphicon.glyphicon-remove.pull-right.delete_button{'ng-click'=>'deleteNote(note)'}
         %textarea{'ng-model'=> 'note.content' }
-        %br/
-        %button{'type'=>'button', 'class'=>'btn btn-primary btn-sm', 'ng-click'=>'saveNote(note)'} Save
-        %button{'type'=>'button', 'class'=>'btn btn-primary btn-sm', 'ng-click'=>'saveNote(note)', 'disabled'=>'true'} Cancel
-        %button{'type'=>'button', 'class'=>'btn btn-danger btn-sm', 'ng-click'=>'deleteNote(note)'} Delete
+        .buttons
+          %button{'type'=>'button', 'class'=>'btn btn-primary btn-sm', 'ng-click'=>'saveNote(note)'} Save
+          %button{'type'=>'button', 'class'=>'btn btn-warning btn-sm', 'ng-click'=>'cancelEdit(note)'} Cancel
+          %button{'type'=>'button', 'class'=>'btn btn-danger btn-sm', 'ng-click'=>'deleteNote(note)'} Delete
