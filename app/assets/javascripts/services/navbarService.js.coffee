@@ -5,8 +5,8 @@ Organizer.factory('Navbar', ->
 
   factory.switchTo = (cssClass) ->
     factory.cleanup = ->
-    $('.nav-link').each ->
-      $(this).removeClass('active')
+      $('.nav-link').each ->
+        $(this).removeClass('active')
 
     el = $('.navbar-nav').find(cssClass)
 

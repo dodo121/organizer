@@ -1,6 +1,6 @@
 Organizer = angular.module('Organizer')
 
-Organizer.controller('NotesCtrl', ['$scope', '$location', '$resource', 'Note', 'Navbar', ($scope, $location, $resource, Note, Navbar) ->
+Organizer.controller('NotesCtrl', ['$scope', 'Note', 'Navbar', ($scope, Note, Navbar) ->
   Navbar.switchTo('#notes-link')
 
   $scope.notes =
@@ -17,6 +17,9 @@ Organizer.controller('NotesCtrl', ['$scope', '$location', '$resource', 'Note', '
 
   $scope.cancelEdit = (note) ->
     note.content = sessionStorage.lastEditedNote
+
+  $scope.saveNote = (note) ->
+    Note.saveNote(note)
 ])
 
 Organizer.directive('myNote', ['Note', (Note) ->
