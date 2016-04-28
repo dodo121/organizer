@@ -17,6 +17,7 @@ Organizer.controller('NotesCtrl', ['$scope', 'Note', 'Navbar', ($scope, Note, Na
 
   $scope.cancelEdit = (note) ->
     note.content = sessionStorage.lastEditedNote
+    note.editing = false
 
   $scope.saveNote = (note) ->
     Note.saveNote(note)
@@ -36,15 +37,20 @@ Organizer.directive('myNote', ['Note', (Note) ->
 
       element.click ->
         $('.buttons').not(element.find('.buttons')).slideUp()
-        element.find('.buttons').slideDown()
-        scope.note.editing = true
-        sessionStorage.lastEditedNote = scope.note.content
+        note.editing = false for note in scope.notes when note isnt scope.note
 
-      element.find('textarea').focusout ->
-        setTimeout (->
-          if scope.note.content != sessionStorage.lastEditedNote #Send update only if note content has changed
-            Note.saveNote(scope.note)
-        ), 2000 #Wait 2 sec, let user use buttons
+        element.find('.buttons').slideDown()
+        sessionStorage.lastEditedNote = scope.note.content # save value before user starts to edit
+        element.find('textarea').on 'input', ->
+          scope.note.editing = true
+
+          element.find('textarea').focusout ->
+            setTimeout (->
+              if scope.note.content != sessionStorage.lastEditedNote #Send update only if note content has changed
+                Note.saveNote(scope.note)
+            ), 1000 #Wait 1 sec, let user use buttons
+
+
       return true
   }
 ])
