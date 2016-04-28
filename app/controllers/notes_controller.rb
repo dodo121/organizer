@@ -6,9 +6,9 @@ class NotesController < ApplicationController
 
   def create
     if note.save
-      redirect_to note, notice: 'Note was successfully created.'
+      render json: note
     else
-      render action: 'new'
+      render json: note.errors, status: :unprocessable_entity
     end
   end
 

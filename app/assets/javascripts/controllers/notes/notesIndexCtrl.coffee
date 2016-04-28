@@ -20,6 +20,10 @@ Organizer.controller('NotesCtrl', ['$scope', 'Note', 'Navbar', ($scope, Note, Na
 
   $scope.saveNote = (note) ->
     Note.saveNote(note)
+
+  $scope.addNewNote = ->
+    newNote = Note.initNewNote()
+    $scope.notes.unshift(newNote)
 ])
 
 Organizer.directive('myNote', ['Note', (Note) ->
@@ -28,7 +32,7 @@ Organizer.directive('myNote', ['Note', (Note) ->
     link: (scope, element, attrs) ->
       setTimeout (->
         element.find('textarea').height(element.find('textarea')[0].scrollHeight)
-      ), 10
+      ), 1
 
       element.click ->
         $('.buttons').not(element.find('.buttons')).slideUp()
@@ -41,16 +45,6 @@ Organizer.directive('myNote', ['Note', (Note) ->
           if scope.note.content != sessionStorage.lastEditedNote #Send update only if note content has changed
             Note.saveNote(scope.note)
         ), 2000 #Wait 2 sec, let user use buttons
-      return true
-  }
-])
-
-Organizer.directive('addNewNote', [ '$compile', ($compile) ->
-  return {
-    restrict: 'E',
-    link: (scope, element, attrs) ->
-      element.on 'click', ->
-        $('#notes').append($compile('<div ng-include="\'templates/notesNew.html\'"></div>')(scope))
       return true
   }
 ])

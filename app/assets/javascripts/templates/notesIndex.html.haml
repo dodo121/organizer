@@ -1,6 +1,6 @@
 %h1
   Notes
-  %add-new-note.glyphicon.glyphicon-plus
+  #add-new-note.glyphicon.glyphicon-plus{'ng-click'=>'addNewNote()'}
 
 .row#notes
   %div{'ng-repeat'=>'note in notes'}

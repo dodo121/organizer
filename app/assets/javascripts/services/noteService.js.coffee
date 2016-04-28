@@ -14,10 +14,13 @@ Organizer.factory('Note', ['$resource', ($resource) ->
     Note.query()
 
   factory.destroy = (note) ->
-    note.$delete()
+    note.$delete() if note.id
 
   factory.saveNote = (note) ->
     if note.id == undefined then note.$create() else note.$save()
+
+  factory.initNewNote = ->
+    new Note({ content: '' })
 
   return factory
 ])

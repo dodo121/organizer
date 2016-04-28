@@ -60,3 +60,14 @@ my-note {
     display: none;
   }
 }
+
+#add-new-note.glyphicon {
+  cursor: pointer;
+  outline: none;
+}
+
+#add-new-note.glyphicon:hover {}
+
+#add-new-note.glyphicon:active {
+  transform: translateY(4px);
+}
