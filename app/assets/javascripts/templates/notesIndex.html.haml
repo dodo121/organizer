@@ -10,6 +10,13 @@
         .glyphicon.glyphicon-remove.pull-right.delete_button{'ng-click'=>'deleteNote(note)'}
         %textarea{'ng-model'=> 'note.content' }
         .buttons
-          %button{'type'=>'button', 'class'=>'btn btn-primary btn-sm', 'ng-click'=>'saveNote(note)'} Save
-          %button{'type'=>'button', 'class'=>'btn btn-warning btn-sm', 'ng-click'=>'cancelEdit(note)'} Cancel
-          %button{'type'=>'button', 'class'=>'btn btn-danger btn-sm', 'ng-click'=>'deleteNote(note)'} Delete
+          %button{'type'=>'button',
+                  'class'=>'btn btn-primary btn-sm',
+                  'ng-click'=>'saveNote(note)'} Save
+          %button{'type'=>'button',
+                  'class'=>'btn btn-warning btn-sm',
+                  'ng-click'=>'cancelEdit(note)',
+                  'ng-show'=>'note.id'} Cancel Editing
+          %button{'type'=>'button',
+                  'class'=>'btn btn-danger btn-sm',
+                  'ng-click'=>'deleteNote(note)'} Delete
