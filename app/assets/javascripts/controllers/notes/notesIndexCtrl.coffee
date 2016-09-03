@@ -35,6 +35,17 @@ Organizer.directive('myNote', ['Note', (Note) ->
         element.find('textarea').height(element.find('textarea')[0].scrollHeight)
       ), 1
 
+      scope.$watch ((scope) ->
+        scope.note.validationStatus
+      ), (newValue, oldValue) ->
+        if newValue != oldValue
+          objectIsValid = newValue
+          if objectIsValid
+            alert 'valid'
+          else
+            alert 'invalid'
+            #TODO apply nice flash messages
+
       element.click ->
         $('.buttons').not(element.find('.buttons')).slideUp()
         note.editing = false for note in scope.notes when note isnt scope.note

@@ -8,13 +8,16 @@ class NotesController < ApplicationController
     if note.save
       render json: note
     else
-      render json: note.errors, status: :unprocessable_entity
+      render_validation_errors
     end
   end
 
   def update
-    note.update_attributes(content: note_params[:content])
-    head :no_content
+    if note.update_attributes(content: note_params[:content])
+      head :no_content
+    else
+      render_validation_errors
+    end
   end
 
   def destroy
@@ -23,7 +26,11 @@ class NotesController < ApplicationController
   end
 
   private
-    def note_params
-      params.require(:note).permit(:content)
-    end
+  def note_params
+    params.require(:note).permit(:content)
+  end
+
+  def render_validation_errors
+    render json: note.errors.full_messages, status: :unprocessable_entity
+  end
 end

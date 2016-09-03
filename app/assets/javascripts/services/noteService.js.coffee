@@ -17,7 +17,14 @@ Organizer.factory('Note', ['$resource', ($resource) ->
     note.$delete() if note.id
 
   factory.saveNote = (note) ->
-    if note.id == undefined then note.$create() else note.$save()
+    if note.id == undefined
+      saveAction = note.$create()
+    else
+      saveAction = note.$save()
+
+    saveAction.then ((res) ->
+      note.validationStatus = true
+    ), (res) -> note.validationStatus = false
 
   factory.initNewNote = ->
     new Note({ content: '' })
