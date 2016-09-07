@@ -1,6 +1,4 @@
-Organizer = angular.module('Organizer')
-
-Organizer.factory('Note', ['$resource', ($resource) ->
+angular.module('Organizer').factory('Note', ['$resource', ($resource) ->
   Note = $resource('/notes/:noteId', { noteId: '@id', format: 'json' },
     {
       'save': { method: 'PUT' },
@@ -25,6 +23,8 @@ Organizer.factory('Note', ['$resource', ($resource) ->
     saveAction.then ((res) ->
       note.validationStatus = true
     ), (res) -> note.validationStatus = false
+
+    note
 
   factory.initNewNote = ->
     new Note({ content: '' })

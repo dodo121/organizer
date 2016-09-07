@@ -18,6 +18,7 @@ beforeEach inject (_$httpBackend_, _$compile_, $rootScope, $controller, $locatio
   @eventLoop =
     flush: =>
   @scope.$digest()
+
 afterEach ->
   @http.resetExpectations()
   @http.verifyNoOutstandingExpectation()

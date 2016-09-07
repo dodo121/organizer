@@ -1,6 +1,4 @@
-Organizer = angular.module('Organizer')
-
-Organizer.factory('Navbar', ->
+angular.module('Organizer').factory('Navbar', ->
   factory = {}
 
   factory.switchTo = (cssClass) ->

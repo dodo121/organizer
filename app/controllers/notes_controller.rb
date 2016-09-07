@@ -6,7 +6,7 @@ class NotesController < ApplicationController
 
   def create
     if note.save
-      render json: note
+      render json: note, status: 201
     else
       render_validation_errors
     end

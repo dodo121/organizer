@@ -8,7 +8,7 @@
     %my-note.col-sm-3
       .well.well-sm
         .glyphicon.glyphicon-remove.pull-right.delete_button{'ng-click'=>'deleteNote(note)'}
-        %textarea{'ng-model'=> 'note.content' }
+        %textarea{'ng-model'=> 'note.content', 'required'=> 'true' }
         .buttons
           %button{'type'=>'button',
                   'class'=>'btn btn-primary btn-sm',

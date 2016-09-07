@@ -1,8 +1,9 @@
 #= require_self
 #= require_tree ./templates
-#= require_tree ./services
+#= require_tree ./factories
 #= require_tree ./controllers/home
 #= require_tree ./controllers/notes
+#= require_tree ./directives
 
 Organizer = angular.module('Organizer', ['ngRoute', 'ngResource', 'ngAnimate', 'templates'])
 
