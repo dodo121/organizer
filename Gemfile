@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'decent_exposure'
 gem 'decent_generators'
 gem 'faker'
+gem 'devise_token_auth'
+gem 'omniauth'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
