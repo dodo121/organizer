@@ -1,0 +1,23 @@
+{
+  "name": "organizer",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dodo121/organizer",
+  "authors": [
+    "Dominik Szromik <dodox360@gmail.com>"
+  ],
+  "description": "bower files for organizer app",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-token-auth": "^0.0.29"
+  }
+}

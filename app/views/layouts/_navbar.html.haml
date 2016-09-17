@@ -13,3 +13,7 @@
             %span.sr-only (current)
         %li.nav-link#notes-link
           %a{:href => "#notes"} Notes
+        %li.nav-link#sign-in-link
+          %a{'ng-show'=>'!user.id', 'href'=>'#sign_in'} Sign in
+        %li.nav-link
+          %a{'ng-show'=>'user.id', 'ng-click'=>'signOut()'} Sign out

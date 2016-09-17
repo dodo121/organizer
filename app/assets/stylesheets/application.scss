@@ -5,3 +5,12 @@
 @import 'navbar';
 @import "notes";
 @import 'buttons';
+
+#template-with-background {
+  margin: 50px 0;
+  background: #EFEFEF;
+
+  #content {
+    padding: 25px;
+  }
+}
