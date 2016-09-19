@@ -8,7 +8,10 @@
 #= require angular-cookie/angular-cookie
 #= require ng-token-auth/src/ng-token-auth
 
-Organizer = angular.module('Organizer', ['ngRoute', 'ngResource', 'ngAnimate', 'templates', 'ng-token-auth'])
+Organizer = angular.module('Organizer', ['ngRoute', 'ngResource', 'ngAnimate', 'templates', 'ng-token-auth']).run(['$rootScope', '$location', ($rootScope, $location) ->
+  $rootScope.$on('auth:login-success') ->
+    $location.path('/')
+])
 
 Organizer.config(['$routeProvider', ($routeProvider) ->
   $routeProvider.when('/notes', { templateUrl: 'notesIndex.html', controller: 'NotesCtrl' } )
