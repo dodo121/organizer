@@ -53,6 +53,7 @@ my-note {
   }
 }
 
+
 #add-new-note.glyphicon {
   cursor: pointer;
   outline: none;
@@ -88,5 +89,23 @@ my-note {
 
   40%, 60% {
     transform: translate3d(4px, 0, 0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  my-note {
+    .well {
+      margin: 0 10px;
+    }
+  }
+
+  .buttons {
+    button {
+      padding: 8px 13px;
+    }
+  }
+
+  .glyphicon.glyphicon-remove {
+    font-size: 18px;
   }
 }

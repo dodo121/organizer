@@ -5,3 +5,7 @@
 //= require angular-animate
 //= require angular-resource
 //= require bootstrap-sprockets
+
+//$(document).ready(function() {
+//  $('.collapse').collapse();
+//});

@@ -18,7 +18,7 @@ angular.module('Organizer').directive('myNote', ['Note', (Note) ->
     #TODO apply nice flash messages
 
     element.click ->
-      element('.buttons').not(element.find('.buttons')).slideUp()
+      $('.buttons').not(element.find('.buttons')).slideUp()
       note.editing = false for note in scope.notes when note isnt scope.note
 
       element.find('.buttons').slideDown()
