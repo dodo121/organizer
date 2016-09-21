@@ -1,5 +1,8 @@
 <div id="template-with-background">
   <div id="content">
+    <div class="alert alert-danger" ng-show="loginErrors">
+      {{loginErrors}}
+    </div>
     <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
       <div class="form-group">
         <label for="email">Email
@@ -22,7 +25,7 @@
                  class="form-control">
         </label>
       </div>
-
+      <p>{{user.id}}</p>
       <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
     </form>
   </div>

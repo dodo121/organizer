@@ -8,9 +8,23 @@
 #= require angular-cookie/angular-cookie
 #= require ng-token-auth/src/ng-token-auth
 
-Organizer = angular.module('Organizer', ['ngRoute', 'ngResource', 'ngAnimate', 'templates', 'ng-token-auth']).run(['$rootScope', '$location', ($rootScope, $location) ->
-  $rootScope.$on('auth:login-success') ->
-    $location.path('/')
+Organizer = angular.module('Organizer', ['ngRoute', 'ngResource', 'ngAnimate', 'templates', 'ng-token-auth'])
+  .run(['$rootScope', '$location', ($rootScope, $location) ->
+    $rootScope.$on('auth:login-success', (ev, user) ->
+      $location.path('#/')
+    )
+
+    $rootScope.$on('auth:login-error', (ev, reason) ->
+      $rootScope.loginErrors = reason.errors.join(', ')
+    )
+
+    $rootScope.$on('auth:logout-success', (ev) ->
+      $location.path('/sign_in')
+    )
+#    if $rootScope.user.signedIn
+#      alert 'loged'
+#    else
+#      alert 'und'
 ])
 
 Organizer.config(['$routeProvider', ($routeProvider) ->
