@@ -1,5 +1,7 @@
 #template-with-background
   #content
+    .alert{'class'=>'alert-' + 'messageType', 'ng-show'=>"messageForUser"}
+      {{messageText}}
     %h2 {{title}}
     %p
       This is super cool app. Lorem ipsum dolor sit amet neque ante, porta est. Sed sed leo ac quam in est.

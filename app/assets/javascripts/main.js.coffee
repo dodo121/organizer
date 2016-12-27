@@ -12,10 +12,13 @@ Organizer = angular.module('Organizer', ['ngRoute', 'ngResource', 'ngAnimate', '
   .run(['$rootScope', '$location', ($rootScope, $location) ->
     $rootScope.$on('auth:login-success', (ev, user) ->
       $location.path('#/')
+      $rootScope.messageType = 'success'
+      $rootScope.messageText = 'Signed in successfully!'
     )
 
     $rootScope.$on('auth:login-error', (ev, reason) ->
-      $rootScope.loginErrors = reason.errors.join(', ')
+      $rootScope.messageType = 'danger'
+      $rootScope.messageText = reason.errors.join(', ')
     )
 
     $rootScope.$on('auth:logout-success', (ev) ->
